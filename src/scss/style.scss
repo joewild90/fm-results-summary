@@ -1,0 +1,279 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../node_modules/bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/helpers";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/type";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+
+:root {
+    --red-light: hsl(0, 100%, 67%);
+    --red-light-hsl: 0, 100%, 67%;
+    --yellow: hsl(39, 100%, 56%);
+    --yellow-hsl: 39, 100%, 56%;
+    --green: hsl(166, 100%, 37%);
+    --green-hsl: 166, 100%, 37%;
+    --blue-cobalt: hsl(234, 85%, 45%);
+    --blue-slate: hsl(252, 100%, 67%);
+    --blue-royal: hsl(241, 81%, 54%);
+    --blue-violet: hsl(256, 72%, 46%);
+    --violet-hsl: 256, 72%, 46%;
+    --blue-persian: hsla(241, 72%, 46%, 0);
+
+    --white: hsl(0, 0%, 100%);
+    --blue-pale: hsl(221, 100%, 96%);
+    --lavender: hsl(241, 100%, 89%);
+    --blue-dark: hsl(224, 30%, 27%);
+    --blue-dark-hsl: 224, 30%, 27%;
+
+    --fs-h1: 1.875rem;
+    --fs-h2: 1.875rem;
+    --fs-h3: 1.5rem;
+    --fs-h4: 1.25rem;
+    --fs-h5: 1.25rem;
+    --fs-h6: 1.25rem;
+    --fs-body: 1.125rem;
+    --fs-link: 1.125rem;
+    --fs-button: 1.125rem;
+
+}
+
+@font-face {
+    font-family: 'Hanken Grotesk';
+    src: url('../fonts/HankenGrotesk-VariableFont_wght.ttf');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-smooth: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+p {
+    margin: 0;
+    font-weight: 500;
+}
+
+
+body {
+    font-size: 1rem;
+    font-family: 'Hanken Grotesk';
+
+    height: 100vh;
+    width: 100%;
+    @include media-breakpoint-up(sm) {
+        font-size: 1.125rem;
+    }
+}
+
+main {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    @include media-breakpoint-up(sm) {
+        align-items: center;
+    }
+}
+
+.icon-wrapper {
+    max-width: 100%;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+   
+}
+
+.btn {
+    border-radius: 6.25rem;
+    padding: 1rem 1rem;
+    background-color: var(--blue-dark);
+    border-color: var(--blue-dark);
+    font-size: 1.125rem;
+    font-weight: 500;
+
+    &:hover, &:focus-visible {
+        background-color: var(--blue-slate);
+        border-color: var(--blue-slate);
+    }
+}
+
+// Result
+
+.card-result {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    width: 100%;
+    max-width: 50rem;
+    @include media-breakpoint-up(sm) {
+        flex-flow: row nowrap;
+        border-radius: 3.125rem;
+        box-shadow: 0 1rem 2rem rgba(48, 59, 90, 0.2);
+    }
+    
+}
+
+.card-result__result,
+.card-result__summary {
+    display: flex;
+    flex-flow: column;
+    padding: 2rem;
+    width: 100%;
+    flex: none;
+    @include media-breakpoint-up(sm) {
+        width: 50%;
+        padding: 3rem 2rem;
+    }
+    @include media-breakpoint-up(md) {
+        padding: 3rem;
+    }
+
+}
+
+.card-result__result {
+    gap: 1.25rem;
+    background: linear-gradient(var(--blue-slate), var(--blue-cobalt)) ;
+    color: var(--lavender);
+    border-bottom-left-radius: 1.875rem;
+    border-bottom-right-radius: 1.875rem;
+    @include media-breakpoint-up(sm) {
+        gap: 1.5rem;
+        border-radius: 3.125rem;
+    }   
+}
+
+.card-result__title {
+    font-size: var(--fs-h4);
+    @include media-breakpoint-up(sm) {
+        font-size: var(--fs-h3);
+    }
+    font-weight: 700;
+}
+
+.card-result__score-description {
+    margin: 0 auto;
+    max-width: 15.625rem;
+}
+
+.card-result__score-name {
+    font-size: var(--fs-h3);
+    color: #fff;
+    @include media-breakpoint-up(sm) {
+        font-size: var(--fs-h2);
+    }
+    font-weight: 700;
+}
+
+.percentage-circle {
+    width: 10rem;
+    height: auto;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 100vh;
+    aspect-ratio: 1/1;
+    background: linear-gradient(hsla(var(--blue-dark-hsl), 0.5), var(--blue-persian));
+    @include media-breakpoint-up(sm) {
+        width: 13rem;
+    }
+
+}
+.percentage-circle__content {
+    font-weight: 700;
+    color:hsla(100%,100%,100%, 0.3);
+}
+
+.percentage-circle__number {
+    display: block;
+    font-size: 3.4375rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    @include media-breakpoint-up(sm) {
+        font-size: 4.375rem;
+    }
+}
+
+// Summary
+
+.card-result__summary {
+    gap: 1rem;
+    text-align: start;
+    color: var(--blue-dark);
+    @include media-breakpoint-up(sm) {
+        gap: 1.5rem;
+    }
+}
+
+.field-score-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+
+    &--bg-red {
+        background-color: hsla(var(--red-light-hsl), 0.1);    
+        .field-score-details__name {
+            color: var(--red-light);
+        } 
+    }
+    &--bg-yellow {
+        background-color: hsla(var(--yellow-hsl), 0.1);  
+        .field-score-details__name {
+            color: var(--yellow);
+        } 
+    }
+    &--bg-green {
+        background-color: hsla(var(--green-hsl), 0.1);   
+        .field-score-details__name {
+            color: var(--green);
+        }  
+    }
+    &--bg-violet {
+        background-color: hsla(var(--violet-hsl), 0.1);    
+        .field-score-details__name {
+            color: var(--blue-violet);
+        } 
+    }
+    
+}
+.field-score-details__score {
+    color:hsla(224, 30%, 27%, 0.4);
+}
+.field-score-details__score-achieved {
+    font-weight: 700;
+    color:hsla(224, 30%, 27%, 1);
+}
+
+
